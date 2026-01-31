@@ -1,10 +1,4 @@
-// Set current year in footer if element exists.
-const yearNode = document.getElementById("current-year");
-if (yearNode) {
-  yearNode.textContent = new Date().getFullYear();
-}
-
-// Smooth scroll for in-page anchor links (optional).
+// Smooth scroll for in-page anchors only.
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
     const targetId = link.getAttribute("href");

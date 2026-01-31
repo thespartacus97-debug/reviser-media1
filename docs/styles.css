@@ -1,21 +1,24 @@
-/* ===== Base variables and resets ===== */
+/* =========================================================
+   Base reset + variables
+   ========================================================= */
 :root {
-  /* Brand colors */
-  --dark: #171717;
+  /* Brand palette */
+  --black: #171717;
   --white: #ffffff;
   --purple: #6f42ff;
   --cyan: #00c2ff;
 
-  /* Neutral tones */
-  --text-light: #f5f5f5;
-  --text-muted: rgba(255, 255, 255, 0.7);
-  --text-dark: #1f1f1f;
-  --gray: #2a2a2a;
+  /* Support colors */
+  --gray-1: #1d1d1d;
+  --gray-2: #2b2b2b;
+  --gray-3: #3a3a3a;
+  --muted: rgba(255, 255, 255, 0.7);
 
   /* Layout */
   --container: 1200px;
-  --radius: 18px;
-  --shadow: 0 24px 40px rgba(0, 0, 0, 0.2);
+  --radius-lg: 26px;
+  --radius-md: 18px;
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 *,
@@ -32,29 +35,13 @@ body {
 
 body {
   font-family: "Montserrat", sans-serif;
-  color: var(--text-light);
-  background: var(--dark);
-}
-
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-}
-
-ul,
-ol {
-  list-style: none;
+  background: var(--black);
+  color: var(--white);
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 a {
@@ -62,75 +49,271 @@ a {
   text-decoration: none;
 }
 
-/* ===== Reusable helpers ===== */
+button {
+  font-family: inherit;
+}
+
+/* =========================================================
+   Container + helper utilities
+   ========================================================= */
 .container {
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 24px;
-  width: 100%;
 }
 
-/* Base section wrapper to keep structure consistent */
-.section {
-  margin: 0 auto;
-}
-
-.section-title {
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 700;
-  margin: 0 0 16px;
-}
-
-.section-text {
-  font-size: clamp(16px, 1.5vw, 18px);
-  line-height: 1.6;
-  margin: 0 0 32px;
-}
-
-.center {
-  text-align: center;
-}
-
-/* ===== Section background themes ===== */
 .section--dark {
-  background: radial-gradient(circle at top, #222 0%, #151515 60%, #101010 100%);
-  color: var(--text-light);
-}
-
-.section--light {
-  background: var(--white);
-  color: var(--text-dark);
-}
-
-.section--purple {
-  background: linear-gradient(140deg, #6f42ff 0%, #5433cc 100%);
   color: var(--white);
+  background: radial-gradient(ellipse at 50% -40%, #2a2a2a 0%, #171717 60%);
 }
 
-/* ===== Universal media placeholders ===== */
+/* =========================================================
+   Grid background for hero + portfolio
+   ========================================================= */
+.section--grid {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid lines + glow overlay */
+.section--grid::before,
+.section--grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Thin grid lines */
+.section--grid::before {
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.06) 0,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 120px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.06) 0,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 120px
+    );
+  opacity: 0.6;
+}
+
+/* Subtle cyan glow in center */
+.section--grid::after {
+  background: radial-gradient(
+    60% 40% at 50% 35%,
+    rgba(0, 194, 255, 0.2),
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+.site-header {
+  padding: 24px 0;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Logo text block */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+
+.logo__sub {
+  font-weight: 500;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.logo__dot {
+  opacity: 0.8;
+}
+
+/* Navigation pills (right side) */
+.nav {
+  display: flex;
+  gap: 12px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pill--purple {
+  background: var(--purple);
+  color: var(--white);
+  box-shadow: 0 10px 20px rgba(111, 66, 255, 0.35);
+}
+
+.pill--outline {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--white);
+  background: transparent;
+}
+
+/* =========================================================
+   Hero section
+   ========================================================= */
+.hero {
+  position: relative;
+  padding: 80px 0 120px;
+}
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+  z-index: 1;
+}
+
+/* Purple info card (front) */
+.hero__card {
+  background: var(--purple);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  max-width: 560px;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+}
+
+.hero__title {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.hero__text {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 15px;
+  opacity: 0.95;
+}
+
+/* Shadow plate behind the card */
+.hero__shadow {
+  position: absolute;
+  width: 520px;
+  height: 170px;
+  border-radius: var(--radius-lg);
+  background: #2a2a2a;
+  transform: translate(-26px, -18px);
+  z-index: 0;
+}
+
+/* CTA button */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--black);
+  font-weight: 600;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Decorative giant word */
+.hero__giant {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  font-size: clamp(64px, 12vw, 180px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__giant-accent {
+  color: rgba(111, 66, 255, 0.6);
+}
+
+/* =========================================================
+   Portfolio section
+   ========================================================= */
+.portfolio {
+  padding: 70px 0 120px;
+  position: relative;
+}
+
+.portfolio__inner {
+  display: grid;
+  gap: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio__title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.portfolio-block {
+  display: grid;
+  gap: 16px;
+}
+
+/* =========================================================
+   Universal media placeholders
+   ========================================================= */
 .media {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #f6f6f6, #e8e8e8);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow);
   overflow: hidden;
-  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
 }
 
+/* Placeholder label */
 .media::before {
-  content: "image placeholder";
+  content: attr(data-placeholder);
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
-  font-size: 12px;
-  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
   opacity: 0;
-  pointer-events: none;
 }
 
+/* Show label when image is missing */
 .media.is-empty::before {
   opacity: 1;
 }
@@ -141,328 +324,117 @@ a {
   object-fit: cover;
 }
 
-.media--4x3 {
-  aspect-ratio: 4 / 3;
-}
-
 .media--16x9 {
   aspect-ratio: 16 / 9;
 }
 
-/* ===== Header ===== */
-.site-header {
-  padding: 28px 0;
+/* =========================================================
+   Contacts section
+   ========================================================= */
+.contacts {
+  padding: 80px 0 100px;
+  background: radial-gradient(ellipse at 50% 10%, #242424 0%, #171717 70%);
 }
 
-.header__inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.contacts__inner {
+  display: grid;
   gap: 24px;
+  text-align: center;
+  justify-items: center;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.contacts__title {
+  margin: 0;
+  font-size: 28px;
   font-weight: 700;
 }
 
-.logo__image {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-}
-
-.logo__text {
-  font-size: 18px;
-}
-
-.nav {
-  display: flex;
-  gap: 24px;
-  text-transform: lowercase;
-}
-
-.nav__link {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-/* ===== Hero ===== */
-.hero {
-  padding: 90px 0 120px;
-}
-
-.hero__content {
-  text-align: center;
-  display: grid;
-  gap: 24px;
-  justify-items: center;
-}
-
-.hero__title {
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 700;
-  margin: 0;
-}
-
-.hero__text {
-  font-size: clamp(16px, 1.6vw, 20px);
-  line-height: 1.7;
-  margin: 0;
-  max-width: 720px;
-  color: var(--text-muted);
-}
-
-/* ===== Buttons ===== */
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 32px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 16px;
-  border: 1px solid transparent;
-}
-
-.button--primary {
-  background: var(--white);
-  color: var(--dark);
-}
-
-/* ===== Mission & values ===== */
-.mission {
-  padding: 80px 0 110px;
-}
-
-.mission__inner {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px;
-  align-items: center;
-}
-
-.mission__card {
-  background: var(--white);
-  color: var(--text-dark);
-  padding: 40px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.mission__image {
-  box-shadow: var(--shadow);
-}
-
-/* ===== Services ===== */
-.services {
-  padding: 90px 0 110px;
-}
-
-.services__inner {
-  display: grid;
-  gap: 24px;
-  justify-items: center;
-}
-
-.services__list {
-  display: grid;
-  gap: 28px;
-  width: min(100%, 720px);
-}
-
-.service {
-  padding: 24px 28px;
-  border-radius: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #fafafa;
-}
-
-.service__title {
-  margin: 0 0 8px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.service__text {
-  margin: 0;
-  color: #4a4a4a;
-}
-
-/* ===== Works ===== */
-.works {
-  padding: 90px 0 120px;
-}
-
-.works__inner {
-  display: grid;
-  gap: 24px;
-}
-
-.works__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.work-card {
-  background: #ffffff;
-  color: var(--text-dark);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  display: grid;
-  grid-template-rows: auto 1fr;
-}
-
-.work-card__media {
-  border-radius: 0;
-}
-
-.work-card__body {
-  padding: 24px;
-}
-
-.work-card__title {
-  margin: 0 0 10px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.work-card__text {
-  margin: 0;
-  color: #4a4a4a;
-}
-
-/* ===== AI section ===== */
-.ai {
-  padding: 90px 0 110px;
-}
-
-.ai__inner {
-  display: grid;
-  gap: 24px;
-}
-
-.ai__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.ai-card {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  padding: 28px;
-  display: grid;
-  gap: 16px;
-}
-
-.ai-card__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.25);
-  display: grid;
-  place-items: center;
-}
-
-.ai-card__icon img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-
-.ai-card__text {
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* ===== Footer / contacts ===== */
-.footer {
-  padding: 80px 0 90px;
-}
-
-.footer__inner {
-  display: grid;
-  gap: 24px;
-  justify-items: center;
-  text-align: center;
-}
-
-.footer__contacts {
+.contacts__list {
   display: grid;
   gap: 8px;
 }
 
-.footer__link {
+.contacts__link {
   font-size: 22px;
   font-weight: 600;
 }
 
-.footer__text {
-  margin: 0;
-  color: var(--text-muted);
+.contacts__text {
+  color: var(--muted);
+  font-size: 14px;
 }
 
-.footer__socials {
+/* Social buttons row */
+.contacts__socials {
   display: flex;
   gap: 12px;
 }
 
-.social-button {
+.social {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #2c2c2c;
+  background: var(--gray-2);
   display: grid;
   place-items: center;
   font-weight: 600;
 }
 
-.footer__top {
-  margin-top: 10px;
-  font-size: 14px;
-  letter-spacing: 0.08em;
+/* Scroll to top link */
+.to-top {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: var(--muted);
 }
 
-.footer__copy {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 14px;
-}
-
-/* ===== Responsive tweaks ===== */
-@media (max-width: 900px) {
-  .mission__inner {
-    grid-template-columns: 1fr;
-  }
-
-  .works__grid,
-  .ai__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
+/* =========================================================
+   Responsive adjustments (<= 768px)
+   ========================================================= */
+@media (max-width: 768px) {
+  /* Header: buttons stack vertically and center */
   .header__inner {
-    flex-direction: column;
+    align-items: flex-start;
   }
 
   .nav {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pill {
+    width: 140px;
     justify-content: center;
   }
 
+  /* Hero: scale and center card */
   .hero {
-    padding: 70px 0 90px;
+    padding: 60px 0 90px;
   }
 
-  .mission__card {
-    padding: 28px;
+  .hero__card {
+    max-width: 100%;
+  }
+
+  .hero__shadow {
+    width: 90%;
+    height: 160px;
+    transform: translate(-12px, -10px);
+  }
+
+  .hero__giant {
+    font-size: clamp(48px, 14vw, 120px);
+    bottom: 0;
+  }
+
+  /* Portfolio spacing */
+  .portfolio {
+    padding: 60px 0 90px;
+  }
+
+  .portfolio__inner {
+    gap: 40px;
   }
 }
