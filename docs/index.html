@@ -32,7 +32,7 @@
 
     <main id="top">
       <!-- ===== HERO (dark): title + description + Telegram CTA ===== -->
-      <section class="hero section--dark">
+      <section class="hero section section--dark">
         <div class="container hero__content">
           <h1 class="hero__title">Визуальная коммуникация с AI</h1>
           <p class="hero__text">
@@ -47,7 +47,7 @@
       </section>
 
       <!-- ===== MISSION & VALUES (dark): text card + image ===== -->
-      <section class="mission section--dark">
+      <section class="mission section section--dark">
         <div class="container mission__inner">
           <!-- White text card: edit mission copy here -->
           <div class="mission__card">
@@ -59,14 +59,20 @@
           </div>
 
           <!-- Mission image: local placeholder, keeps layout even if missing -->
-          <div class="mission__image" role="img" aria-label="Команда за работой">
-            <img src="assets/mission.jpg" alt="Наша команда" />
+          <div class="mission__image media media--4x3" role="img" aria-label="Команда за работой">
+            <!-- Replace src later with your real image in docs/assets/ -->
+            <img
+              src="assets/mission.jpg"
+              alt="Наша команда"
+              loading="lazy"
+              onerror="this.closest('.media').classList.add('is-empty'); this.remove();"
+            />
           </div>
         </div>
       </section>
 
       <!-- ===== SERVICES (white): title + description + vertical list ===== -->
-      <section class="services section--light">
+      <section class="services section section--light">
         <div class="container services__inner">
           <h2 class="section-title center">Наши услуги</h2>
           <p class="section-text center">
@@ -92,7 +98,7 @@
       </section>
 
       <!-- ===== WORKS (dark/gray): title + description + 3 cards ===== -->
-      <section class="works section--dark" id="portfolio">
+      <section class="works section section--dark" id="portfolio">
         <div class="container works__inner">
           <h2 class="section-title center">Примеры работ</h2>
           <p class="section-text center">
@@ -102,8 +108,14 @@
           <div class="works__grid">
             <!-- Work card 1 -->
             <article class="work-card">
-              <div class="work-card__media">
-                <img src="assets/work-1.jpg" alt="Пример работы 1" />
+              <div class="work-card__media media media--4x3">
+                <!-- Replace src later with your real image in docs/assets/ -->
+                <img
+                  src="assets/work-1.jpg"
+                  alt="Пример работы 1"
+                  loading="lazy"
+                  onerror="this.closest('.media').classList.add('is-empty'); this.remove();"
+                />
               </div>
               <div class="work-card__body">
                 <h3 class="work-card__title">Fashion AI-съёмка</h3>
@@ -113,8 +125,14 @@
 
             <!-- Work card 2 -->
             <article class="work-card">
-              <div class="work-card__media">
-                <img src="assets/work-2.jpg" alt="Пример работы 2" />
+              <div class="work-card__media media media--4x3">
+                <!-- Replace src later with your real image in docs/assets/ -->
+                <img
+                  src="assets/work-2.jpg"
+                  alt="Пример работы 2"
+                  loading="lazy"
+                  onerror="this.closest('.media').classList.add('is-empty'); this.remove();"
+                />
               </div>
               <div class="work-card__body">
                 <h3 class="work-card__title">Tech-продукт</h3>
@@ -124,8 +142,14 @@
 
             <!-- Work card 3 -->
             <article class="work-card">
-              <div class="work-card__media">
-                <img src="assets/work-3.jpg" alt="Пример работы 3" />
+              <div class="work-card__media media media--4x3">
+                <!-- Replace src later with your real image in docs/assets/ -->
+                <img
+                  src="assets/work-3.jpg"
+                  alt="Пример работы 3"
+                  loading="lazy"
+                  onerror="this.closest('.media').classList.add('is-empty'); this.remove();"
+                />
               </div>
               <div class="work-card__body">
                 <h3 class="work-card__title">Lifestyle-кампания</h3>
@@ -137,7 +161,7 @@
       </section>
 
       <!-- ===== AI SECTION (purple): title + description + 3 columns ===== -->
-      <section class="ai section--purple">
+      <section class="ai section section--purple">
         <div class="container ai__inner">
           <h2 class="section-title center">Как мы используем AI</h2>
           <p class="section-text center">
@@ -174,7 +198,7 @@
     </main>
 
     <!-- ===== CONTACTS / FOOTER (dark/gray): contacts + social + back to top ===== -->
-    <footer class="footer section--dark" id="contacts">
+    <footer class="footer section section--dark" id="contacts">
       <div class="container footer__inner">
         <h2 class="section-title center">Свяжитесь с нами</h2>
 
