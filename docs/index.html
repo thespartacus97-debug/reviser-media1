@@ -1,118 +1,210 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reviser Media — Визуальная коммуникация с AI</title>
+    <meta
+      name="description"
+      content="Reviser Media — визуальная коммуникация с AI: миссия, услуги, примеры работ и подход к искусственному интеллекту."
+    />
+    <!-- Font note: Montserrat is expected to be available (load it here if needed). -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- ===== HEADER (dark): logo left + menu right ===== -->
+    <header class="site-header section--dark">
+      <div class="container header__inner">
+        <!-- Logo block: uses local SVG; text acts as fallback if image is missing -->
+        <a class="logo" href="#top" aria-label="Reviser Media">
+          <img src="assets/logo.svg" alt="Reviser Media" class="logo__image" />
+          <span class="logo__text">Reviser Media</span>
+        </a>
 
-  <title>Reviser.медиа: стильные решения для бизнеса</title>
-  <meta name="description" content="Агентство визуальных коммуникаций reviser.медиа. Создаём визуал и видео для брендов: от маркетплейсов до соцсетей." />
-
-  <!-- Social / OG -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Reviser.медиа: стильные решения для бизнеса" />
-  <meta property="og:description" content="Создаём визуал и видео для брендов: от маркетплейсов до соцсетей. Выбираем формат под задачу." />
-  <!-- Поставь свою картинку в docs/assets/og.png -->
-  <meta property="og:image" content="https://thespartacus97-debug.github.io/reviser-media/assets/og.png" />
-  <meta property="og:url" content="https://thespartacus97-debug.github.io/reviser-media/" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://thespartacus97-debug.github.io/reviser-media/" />
-
-  <!-- UX -->
-  <meta name="format-detection" content="telephone=no" />
-  <meta http-equiv="x-dns-prefetch-control" content="on" />
-
-  <!-- SEO: если хочешь, чтобы сайт индексировался, ставь index,follow -->
-  <meta name="robots" content="index,follow" />
-
-  <!-- Favicon (положи favicon в docs/assets/favicon.ico) -->
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-
-  <!-- Fonts (как в примере — Montserrat) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap&subset=latin,cyrillic" rel="stylesheet" />
-
-  <!-- Our CSS -->
-  <link rel="stylesheet" href="styles.css" />
-</head>
-
-
-<body>
-  <div class="bg" aria-hidden="true"></div>
-
-  <header class="header">
-    <a class="brand" href="#top" aria-label="reviser.media — на верх">
-      <img class="brand__logo" src="assets/logo.svg" alt="reviser.media"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-      <div class="brand__fallback" style="display:none;">
-        <div class="brand__name">reviser</div>
-        <div class="brand__sub">• медиа •</div>
+        <!-- Main navigation: anchors for portfolio and contacts -->
+        <nav class="nav">
+          <!-- Edit menu labels/anchors here -->
+          <a class="nav__link" href="#portfolio">портфолио</a>
+          <a class="nav__link" href="#contacts">контакты</a>
+        </nav>
       </div>
-    </a>
+    </header>
 
-    <nav class="nav">
-      <a class="btn btn--primary" href="#portfolio">портфолио</a>
-      <a class="btn btn--ghost" href="#contacts">контакты</a>
-    </nav>
-  </header>
+    <main id="top">
+      <!-- ===== HERO (dark): title + description + Telegram CTA ===== -->
+      <section class="hero section--dark">
+        <div class="container hero__content">
+          <h1 class="hero__title">Визуальная коммуникация с AI</h1>
+          <p class="hero__text">
+            Помогаем брендам и проектам говорить на языке визуала.<br />
+            Создаём креативы, которые выделяются и работают в цифре.
+          </p>
+          <!-- Telegram CTA: replace link if needed -->
+          <a class="button button--primary" href="https://t.me/vi_reviser" target="_blank" rel="noreferrer">
+            Написать в Telegram
+          </a>
+        </div>
+      </section>
 
-  <main id="top" class="main">
-    <section class="hero">
-      <div class="hero__frame" aria-hidden="true"></div>
+      <!-- ===== MISSION & VALUES (dark): text card + image ===== -->
+      <section class="mission section--dark">
+        <div class="container mission__inner">
+          <!-- White text card: edit mission copy here -->
+          <div class="mission__card">
+            <h2 class="section-title">Наша миссия и ценности</h2>
+            <p class="section-text">
+              Мы соединяем стратегию, дизайн и технологии, чтобы визуальная коммуникация
+              была понятной, современной и эффективной. Для нас важны ясность, темп и результат.
+            </p>
+          </div>
 
-      <div class="hero__card">
-        <h1 class="hero__title">Агентство визуального маркетинга.</h1>
-        <p class="hero__text">
-          Создаём визуал и видео для брендов:<br />
-          от маркетплейсов до соцсетей.<br />
-          Выбираем формат под задачу.
+          <!-- Mission image: local placeholder, keeps layout even if missing -->
+          <div class="mission__image" role="img" aria-label="Команда за работой">
+            <img src="assets/mission.jpg" alt="Наша команда" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SERVICES (white): title + description + vertical list ===== -->
+      <section class="services section--light">
+        <div class="container services__inner">
+          <h2 class="section-title center">Наши услуги</h2>
+          <p class="section-text center">
+            Решаем задачи брендов через продуманные визуальные материалы и AI-инструменты.
+          </p>
+
+          <!-- Service list: edit items and text here -->
+          <div class="services__list">
+            <article class="service">
+              <h3 class="service__title">AI-креативы для рекламы</h3>
+              <p class="service__text">Идеи и визуалы для кампаний, соцсетей и посадочных страниц.</p>
+            </article>
+            <article class="service">
+              <h3 class="service__title">Контент для брендов</h3>
+              <p class="service__text">Серии изображений и визуальные истории в фирменном стиле.</p>
+            </article>
+            <article class="service">
+              <h3 class="service__title">Визуальные прототипы</h3>
+              <p class="service__text">Быстрое тестирование концепций перед запуском продакшна.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WORKS (dark/gray): title + description + 3 cards ===== -->
+      <section class="works section--dark" id="portfolio">
+        <div class="container works__inner">
+          <h2 class="section-title center">Примеры работ</h2>
+          <p class="section-text center">
+            Подборка визуальных решений для разных сфер: от моды до tech-проектов.
+          </p>
+
+          <div class="works__grid">
+            <!-- Work card 1 -->
+            <article class="work-card">
+              <div class="work-card__media">
+                <img src="assets/work-1.jpg" alt="Пример работы 1" />
+              </div>
+              <div class="work-card__body">
+                <h3 class="work-card__title">Fashion AI-съёмка</h3>
+                <p class="work-card__text">Серия визуалов для лукбука и digital-кампании.</p>
+              </div>
+            </article>
+
+            <!-- Work card 2 -->
+            <article class="work-card">
+              <div class="work-card__media">
+                <img src="assets/work-2.jpg" alt="Пример работы 2" />
+              </div>
+              <div class="work-card__body">
+                <h3 class="work-card__title">Tech-продукт</h3>
+                <p class="work-card__text">Концепты для презентации и промо-материалов.</p>
+              </div>
+            </article>
+
+            <!-- Work card 3 -->
+            <article class="work-card">
+              <div class="work-card__media">
+                <img src="assets/work-3.jpg" alt="Пример работы 3" />
+              </div>
+              <div class="work-card__body">
+                <h3 class="work-card__title">Lifestyle-кампания</h3>
+                <p class="work-card__text">Имиджевые визуалы для запуска коллекции.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== AI SECTION (purple): title + description + 3 columns ===== -->
+      <section class="ai section--purple">
+        <div class="container ai__inner">
+          <h2 class="section-title center">Как мы используем AI</h2>
+          <p class="section-text center">
+            Применяем искусственный интеллект, чтобы ускорять процесс и усиливать идеи.
+          </p>
+
+          <div class="ai__grid">
+            <!-- AI column 1 -->
+            <article class="ai-card">
+              <div class="ai-card__icon">
+                <img src="assets/icon-1.svg" alt="Иконка генерации" />
+              </div>
+              <p class="ai-card__text">Генерируем десятки вариантов визуалов и выбираем лучшие.</p>
+            </article>
+
+            <!-- AI column 2 -->
+            <article class="ai-card">
+              <div class="ai-card__icon">
+                <img src="assets/icon-2.svg" alt="Иконка скорости" />
+              </div>
+              <p class="ai-card__text">Ускоряем продакшн и тестируем гипотезы в разы быстрее.</p>
+            </article>
+
+            <!-- AI column 3 -->
+            <article class="ai-card">
+              <div class="ai-card__icon">
+                <img src="assets/icon-3.svg" alt="Иконка точности" />
+              </div>
+              <p class="ai-card__text">Достигаем точного соответствия бренду и задаче.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== CONTACTS / FOOTER (dark/gray): contacts + social + back to top ===== -->
+    <footer class="footer section--dark" id="contacts">
+      <div class="container footer__inner">
+        <h2 class="section-title center">Свяжитесь с нами</h2>
+
+        <!-- Contact info: edit phone/email/address here -->
+        <div class="footer__contacts">
+          <a class="footer__link" href="tel:+79991234567">+7 (999) 123-45-67</a>
+          <a class="footer__link" href="mailto:hello@reviser.media">hello@reviser.media</a>
+          <p class="footer__text">Москва, Россия</p>
+        </div>
+
+        <!-- Social links: replace URLs/icons as needed -->
+        <div class="footer__socials">
+          <a class="social-button" href="#" aria-label="Telegram">
+            <!-- Icon placeholder: swap with inline SVG or local asset -->
+            TG
+          </a>
+          <a class="social-button" href="#" aria-label="Behance">Be</a>
+          <a class="social-button" href="#" aria-label="Instagram">In</a>
+        </div>
+
+        <!-- Back to top anchor -->
+        <a class="footer__top" href="#top">Наверх</a>
+
+        <!-- Optional year: set via JS in main.js -->
+        <p class="footer__copy">
+          © <span id="current-year">2026</span> Reviser Media
         </p>
       </div>
-
-      <a class="cta" href="https://t.me/your_username" target="_blank" rel="noreferrer">
-        Написать в Telegram
-      </a>
-    </section>
-
-    <section class="portfolio-title">
-      <div class="portfolio-title__word" aria-label="ПОРТФОЛИО">
-        ПОРТФ<span class="o">О</span>ЛИО
-      </div>
-    </section>
-
-    <section id="portfolio" class="section">
-      <h2 class="section__title">МАРКЕТПЛЕЙСЫ</h2>
-      <div class="work-grid">
-        <a class="work-card" href="#" aria-label="Проект 1">
-          <div class="work-card__inner">Здесь будет кейс</div>
-        </a>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section__title">AI-ВИДЕО</h2>
-      <div class="work-grid">
-        <a class="work-card" href="#" aria-label="Проект 2">
-          <div class="work-card__inner">Здесь будет кейс</div>
-        </a>
-      </div>
-    </section>
-
-    <section id="contacts" class="section section--contacts">
-      <h2 class="section__title">КОНТАКТЫ</h2>
-      <div class="contacts">
-        <a class="contact-pill" href="https://t.me/your_username" target="_blank" rel="noreferrer">Telegram</a>
-        <a class="contact-pill" href="mailto:hello@reviser.media">Email</a>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div>© <span id="year"></span> reviser.media</div>
     </footer>
-  </main>
 
-  <script src="main.js"></script>
-</body>
+    <script src="./main.js"></script>
+  </body>
 </html>
